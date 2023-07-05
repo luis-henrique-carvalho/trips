@@ -1,16 +1,11 @@
+import HeaderBetweenLines from "@/components/HeaderBetweenLines";
 import Image from "next/image";
 import React from "react";
 
 const QuickSearch = () => {
   return (
     <div className="container mx-auto p-5">
-      <div className="flex items-center">
-        <div className="w-full h-[1px] bg-grayLighter"></div>
-        <h2 className="px-5 font-medium text-grayPrimary whitespace-nowrap">
-          Tente pesquisar por
-        </h2>
-        <div className="w-full h-[1px] bg-grayLighter"></div>
-      </div>
+      <HeaderBetweenLines text="Tente pesquisar por" />
 
       <div className="flex items-center justify-between mt-5">
         <div className="flex flex-col items-center gap-[5px]">
