@@ -13,7 +13,7 @@ export default function Home() {
   console.log(status);
 
   return (
-    <div>
+    <div className=" ">
       <h1>{data?.user?.name}</h1>
       <button onClick={() => signIn()}>Login</button>
     </div>
