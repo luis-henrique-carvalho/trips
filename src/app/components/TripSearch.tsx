@@ -1,11 +1,12 @@
 import Input from "@/components/Input";
 import React from "react";
-import DatesPicker from "./DatesPicker";
-import CurrencyInput from "./CurrencyInput";
+import DatesPicker from "@/components/DatesPicker";
+import CurrencyInput from "@/components/CurrencyInput";
+import Button from "@/components/Button";
 
 const TripSearch = () => {
   return (
-    <div className="container mx-auto p-5">
+    <div className="container mx-auto p-5 bg-search-background bg-cover bg-center">
       <h1 className="text-2xl font-semibold text-center text-primaryDarker ">
         Encontre sua próxima <span className="text-primary">Viagem!</span>
       </h1>
@@ -20,8 +21,10 @@ const TripSearch = () => {
           />
           <CurrencyInput
             placeholder="Oraçamento"
+            className="text-primaryDarker"
           />
         </div>
+        <Button className="">Pesquisar</Button>
       </div>
     </div>
   );
