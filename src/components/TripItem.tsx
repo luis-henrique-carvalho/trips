@@ -20,6 +20,7 @@ const TripItem = ({ trip }: TripItemProps) => {
               objectFit: "cover",
             }}
             fill
+            priority
             alt={trip.name}
           />
         </div>
