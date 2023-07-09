@@ -9,26 +9,32 @@ import Button from "@/components/Button";
 import { useForm, Controller } from "react-hook-form";
 
 interface TripReservationProps {
-  trip: Trip;
+  tripStartDate: Date,
+  tripEndDate: Date,
+  maxGuests: number;
 }
 
 interface TripReservationForm {
-  guests: number;
+  maxGuests: number;
   startDate: Date | null;
   endDate: Date | null;
 }
 
-const TripReservations = ({ trip }: TripReservationProps) => {
+const TripReservations = ({ tripEndDate, tripStartDate, maxGuests }: TripReservationProps) => {
+  console.log(tripStartDate,"    ", tripEndDate)
   const {
     register,
     handleSubmit,
     formState: { errors },
     control,
+    watch
   } = useForm<TripReservationForm>();
 
   const onSubmit = (data: any) => {
     console.log({ data });
   };
+
+  const startDate = watch("startDate")
 
   return (
     <div className="flex flex-col px-5 ">
@@ -50,6 +56,7 @@ const TripReservations = ({ trip }: TripReservationProps) => {
               selected={field.value}
               className="w-full"
               placeholderText="Data inicial"
+              minDate={tripStartDate}
             />
           )}
         />
@@ -70,22 +77,24 @@ const TripReservations = ({ trip }: TripReservationProps) => {
               selected={field.value}
               className="w-full"
               placeholderText="Data final"
+              minDate={startDate ?? tripStartDate}
+              maxDate={tripEndDate}
             />
           )}
         />
       </div>
 
       <Input
-        {...register("guests", {
+        {...register("maxGuests", {
           required: {
             value: true,
             message: "Numero de hóspedes é obrigatório",
           },
         })}
-        placeholder={`Número de hóspedes (max: ${trip.maxGuests.toString()})`}
+        placeholder={`Número de hóspedes (max: ${maxGuests.toString()})`}
         className="mt-4"
-        error={!!errors?.guests}
-        errorMessage={errors?.guests?.message as string}
+        error={!!errors?.maxGuests}
+        errorMessage={errors?.maxGuests?.message as string}
       />
 
       <div className="flex justify-between mt-3">
