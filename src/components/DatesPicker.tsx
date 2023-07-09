@@ -10,6 +10,7 @@ registerLocale("pt-BR", ptBR);
 interface InputProps extends ReactDatePickerProps {
   error?: boolean;
   errorMessage?: string;
+
 }
 
 function DatePicker({ className, error, errorMessage, ...props }: InputProps, ref: LegacyRef<HTMLInputElement> | undefined) {
